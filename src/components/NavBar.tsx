@@ -21,10 +21,10 @@ export const Navbar = () => {
   }, []);
 
   return (
-    <nav className="sticky top-0 z-50 shadow-lg bg-[var(--background)] text-[var(--foreground)] font-geist-sans">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo */}
+    <nav className="bg-black text-white shadow-lg sticky top-0 z-50 backdrop-blur-md bg-opacity-90">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-5  ">
+        <div className="flex justify-between items-center h-16   ">
+                   {/* Logo */}
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
               <Image
@@ -47,7 +47,6 @@ export const Navbar = () => {
             </Link>
           </div>
 
-          {/* Menu Items */}
           <div className="hidden md:flex space-x-8 items-center">
             <Link href="/" className="hover:text-yellow-400 transition-colors">
               Início
@@ -63,14 +62,13 @@ export const Navbar = () => {
             </Link>
           </div>
 
-          {/* Mobile Menu Toggle */}
           <div className="md:hidden">
             <button
               type="button"
               aria-expanded="true"
               aria-controls="mobile-menu"
               onClick={() => setMenuOpen(!menuOpen)}
-              className="p-2 rounded-md focus:outline-none focus:ring focus:ring-yellow-400"
+              className="p-2 rounded-md focus:outline-none focus:ring focus:ring-yellow-400 flex items-center"
             >
               {menuOpen ? (
                 <svg
@@ -103,12 +101,12 @@ export const Navbar = () => {
                   />
                 </svg>
               )}
+              <span className="ml-2">MENU</span>
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Menu */}
       {menuOpen && (
         <div id="mobile-menu" className="md:hidden bg-[var(--background)]">
           <div className="space-y-2 px-4 py-2">

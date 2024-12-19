@@ -20,7 +20,12 @@ const geistMono = Geist_Mono({
 // Metadata para SEO
 export const metadata: Metadata = {
   title: "R&R Pizzaria ",
-  viewport: "width=device-width, initial-scale=1",
+};
+
+// Exportação do viewport
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({
