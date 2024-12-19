@@ -1,3 +1,11 @@
+
+## Pizzaria R&R - Website
+# Descrição
+O Pizzaria R&R Website é uma aplicação web moderna e robusta desenvolvida para otimizar o atendimento e gestão de pedidos da pizzaria. Este projeto será desenvolvido com uma abordagem modular, utilizando as mais recentes tecnologias para garantir desempenho, escalabilidade e facilidade de manutenção.
+
+# Objetivo
+Criar um sistema eficiente que funcione localmente na rede da pizzaria, permitindo recolha de pedidos, gestão de menus, e acompanhamento do estado dos pedidos, com uma interface intuitiva tanto para funcionários como para clientes.
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
