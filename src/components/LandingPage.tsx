@@ -8,17 +8,15 @@ import "slick-carousel/slick/slick-theme.css";
 export const LandingPage: React.FC = () => {
   const slides: string[] = [
     "/images/slide1.png",
-    "/images/slide2.png", 
-    "/images/slide3.png"
+    "/images/slide2.png",
+    "/images/slide3.png",
   ];
 
   const pizzaDetails = [
     { name: "Margherita Clássica", price: "€ 35,90" },
     { name: "Pepperoni Supreme", price: "€ 42,90" },
-    { name: "Vegetariana Deluxe", price: "€ 39,90" }
+    { name: "Vegetariana Deluxe", price: "€ 39,90" },
   ];
-
-  
 
   const settings = {
     dots: true,
@@ -26,7 +24,6 @@ export const LandingPage: React.FC = () => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-   
   };
 
   return (
@@ -88,8 +85,8 @@ export const LandingPage: React.FC = () => {
               <div key={index}>
                 <div className="bg-white rounded-xl shadow-lg overflow-hidden max-w-md mx-auto">
                   <div className="relative h-[400px] w-full">
-                    <Image 
-                      src={slide} 
+                    <Image
+                      src={slide}
                       alt={pizzaDetails[index].name}
                       fill
                       className="object-contain"
@@ -113,7 +110,6 @@ export const LandingPage: React.FC = () => {
           </Slider>
         </div>
       </section>
-
 
       {/* Call to Action Section */}
       <section className="bg-black text-gray-300 text-center py-16">
