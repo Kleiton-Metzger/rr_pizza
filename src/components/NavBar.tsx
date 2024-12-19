@@ -1,14 +1,27 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-const Navbar = () => {
+export const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setMenuOpen(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
-    <nav className="sticky top-0 z-50 shadow-lg bg-[var(--background)] text-[var(--foreground)]">
+    <nav className="sticky top-0 z-50 shadow-lg bg-[var(--background)] text-[var(--foreground)] font-geist-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -22,7 +35,7 @@ const Navbar = () => {
                 className="rounded-full object-cover"
               />
               <div className="ml-2 flex flex-col">
-                <span className="text-lg font-bold tracking-widest font-serif">
+                <span className="text-lg font-bold tracking-wide">
                   <span className="text-2xl">R</span>
                   <span className="text-sm align-middle mx-0.5 relative -top-1">&</span>
                   <span className="text-2xl">R</span>
@@ -54,7 +67,7 @@ const Navbar = () => {
           <div className="md:hidden">
             <button
               type="button"
-              aria-expanded="false"
+              aria-expanded="true"
               aria-controls="mobile-menu"
               onClick={() => setMenuOpen(!menuOpen)}
               className="p-2 rounded-md focus:outline-none focus:ring focus:ring-yellow-400"
@@ -117,5 +130,3 @@ const Navbar = () => {
     </nav>
   );
 };
-
-export { Navbar };
