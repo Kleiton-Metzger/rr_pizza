@@ -27,11 +27,8 @@ export const LandingPage: React.FC = () => {
     return () => clearInterval(interval);
   }, [slides.length]);
 
- 
-
   return (
-   
-      <div className="min-h-screen flex flex-col bg-white text-gray-800">
+    <div className="min-h-screen flex flex-col bg-white text-gray-800">
       {/* Hero Section com Imagem de Fundo */}
       <section className="relative h-screen">
         {/* Imagem de Fundo */}
@@ -97,7 +94,6 @@ export const LandingPage: React.FC = () => {
         </div>
       </section>
 
-
       {/* Features Section */}
       <section className="py-16 bg-gray-100">
         <div className="container mx-auto px-4">
@@ -140,7 +136,6 @@ export const LandingPage: React.FC = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-12">Nossas Pizzas Mais Amadas</h2>
 
           <Carousel value={currentIndex} onChange={(newIndex: number) => setCurrentIndex(newIndex)}>
-
             <CarouselContent>
               {slides.map((slide, index) => (
                 <CarouselItem 
@@ -179,7 +174,7 @@ export const LandingPage: React.FC = () => {
         </div>
       </section>
 
- {/* Call to Action Section */}
+{/* Call to Action Section */}
 <section className="bg-black text-gray-300 text-center py-16">
   <motion.div
     whileHover={{ scale: 1.02 }}
@@ -216,9 +211,6 @@ export const LandingPage: React.FC = () => {
     </div>
   </motion.div>
 </section>
-
-
-
       {/* Footer */}
       <footer className="bg-gray-800 text-white py-8">
         <div className="container mx-auto px-4 text-center">
