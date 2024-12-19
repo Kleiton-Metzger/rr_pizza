@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -26,6 +25,10 @@ export const LandingPage: React.FC = () => {
 
     return () => clearInterval(interval);
   }, [slides.length]);
+
+  const handleCarouselChange = (newIndex: number) => {
+    setCurrentIndex(newIndex);
+  };
 
   return (
     <div className="min-h-screen flex flex-col bg-white text-gray-800">
@@ -84,7 +87,7 @@ export const LandingPage: React.FC = () => {
             className="relative w-full aspect-square"
           >
             <Image
-              src={slides[currentIndex]} // Usando currentIndex para controlar qual slide mostrar
+              src="/images/slide1.png"
               alt="Pizza Destaque"
               fill
               className="object-contain"
@@ -135,10 +138,13 @@ export const LandingPage: React.FC = () => {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-12">Nossas Pizzas Mais Amadas</h2>
 
-          <Carousel value={currentIndex} onChange={(newIndex: number) => setCurrentIndex(newIndex)}>
+          <Carousel value={currentIndex} onChange={handleCarouselChange}>
             <CarouselContent>
               {slides.map((slide, index) => (
-                <CarouselItem key={index} className={index === currentIndex ? 'block' : 'hidden'}>
+                <CarouselItem 
+                  key={index} 
+                  className={index === currentIndex ? 'block' : 'hidden'}
+                >
                   <motion.div
                     whileHover={{ scale: 1.05 }}
                     className="bg-white rounded-xl shadow-lg overflow-hidden max-w-md mx-auto"
