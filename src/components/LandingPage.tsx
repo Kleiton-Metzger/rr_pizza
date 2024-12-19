@@ -14,9 +14,9 @@ export const LandingPage: React.FC = () => {
   ];
 
   const pizzaDetails = [
-    { name: "Margherita Clássica", price: "R$ 35,90" },
-    { name: "Pepperoni Supreme", price: "R$ 42,90" },
-    { name: "Vegetariana Deluxe", price: "R$ 39,90" }
+    { name: "Margherita Clássica", price: "€ 35,90" },
+    { name: "Pepperoni Supreme", price: "€ 42,90" },
+    { name: "Vegetariana Deluxe", price: "€ 39,90" }
   ];
 
   useEffect(() => {
@@ -27,21 +27,20 @@ export const LandingPage: React.FC = () => {
     return () => clearInterval(interval);
   }, [slides.length]);
 
-  const handleDotClick = (index: number) => {
-    setCurrentIndex(index);
-  };
+ 
 
   return (
-    <div className="min-h-screen flex flex-col bg-white text-gray-800">
+   
+      <div className="min-h-screen flex flex-col bg-white text-gray-800">
       {/* Hero Section com Imagem de Fundo */}
       <section className="relative h-screen">
         {/* Imagem de Fundo */}
         <div className="absolute inset-0 z-0">
-          <Image 
+          <Image
             src="/images/wood.jpg"
             alt="Pizza Background"
             fill
-            className="object-cover"
+            className="object-cover object-center"
             priority
           />
           {/* Overlay escuro para melhorar legibilidade do texto */}
@@ -50,20 +49,20 @@ export const LandingPage: React.FC = () => {
 
         {/* Conteúdo Sobreposto */}
         <div className="relative z-10 container mx-auto grid md:grid-cols-2 gap-8 items-center h-full px-8 md:px-16">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
             className="space-y-6 text-white"
           >
-            <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-4 md:mb-8 tracking-wide text-shadow text-center md:text-left ">
-             Sabor Autêntico em Cada Fatia
+            <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-4 md:mb-8 tracking-wide text-shadow text-center md:text-left">
+              Sabor Autêntico em Cada Fatia
             </h1>
             <p className="text-xl md:text-2xl text-shadow text-center md:text-left">
               Experimente o melhor da culinária italiana, feita com paixão e ingredientes frescos.
             </p>
-            <div className="flex space-x-4">
-              <motion.button 
+            <div className="flex flex-col md:flex-row space-x-0 md:space-x-4">
+              <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-yellow-500 text-white px-6 py-3 rounded-full shadow-lg hover:bg-yellow-500 transition font-bold"
@@ -73,22 +72,22 @@ export const LandingPage: React.FC = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="border-2 border-white text-white px-6 py-3 rounded-full px-6 py-3 rounded-full hover:bg-yellow-500 transition font-bold"
+                className="border-2 border-white text-white px-6 py-3 rounded-full hover:bg-yellow-500 transition font-bold mt-4 md:mt-0"
               >
                 Ver Menu
               </motion.button>
             </div>
           </motion.div>
-          
+
           {/* Imagem de Pizza Destacada */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
-            className="relative w-full aspect-square hidden md:block"
+            className="relative w-full aspect-square"
           >
-            <Image 
-              src="/images/slide1.png" 
+            <Image
+              src="/images/slide1.png"
               alt="Pizza Destaque"
               fill
               className="object-contain"
@@ -98,12 +97,13 @@ export const LandingPage: React.FC = () => {
         </div>
       </section>
 
+
       {/* Features Section */}
       <section className="py-16 bg-gray-100">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Por que escolher a Pizza R&R?</h2>
           <div className="grid md:grid-cols-3 gap-8">
-            {[
+            {[ 
               {
                 icon: "🍕",
                 title: "Ingredientes Frescos",
@@ -156,6 +156,7 @@ export const LandingPage: React.FC = () => {
                         alt={pizzaDetails[index].name}
                         fill
                         className="object-contain"
+                        loading="lazy"
                       />
                     </div>
                     <div className="p-4">
@@ -173,42 +174,49 @@ export const LandingPage: React.FC = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-
-            {/* Dots de progresso clicáveis */}
-            <div className="absolute bottom-4 left-0 right-0">
-              <div className="flex justify-center space-x-2">
-                {slides.map((_, index) => (
-                  <motion.button
-                    key={index}
-                    onClick={() => handleDotClick(index)}
-                    className={`h-3 w-3 rounded-full ${
-                      index === currentIndex ? 'bg-red-500' : 'bg-gray-400'
-                    }`}
-                    initial={{ scale: 0.8 }}
-                    animate={{ scale: index === currentIndex ? 1 : 0.8 }}
-                    whileHover={{ scale: 1.2 }}
-                    transition={{ duration: 0.3 }}
-                  />
-                ))}
-              </div>
-            </div>
           </Carousel>
         </div>
       </section>
 
-      {/* Call to Action Section */}
-      <section className="bg-red-500 text-white text-center py-16">
-        <motion.div
-          whileHover={{ scale: 1.02 }}
-          className="container mx-auto px-4"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Pronto para saborear a melhor pizza da cidade?</h2>
-          <p className="text-xl mb-8">Faça seu pedido agora e receba em casa!</p>
-          <button className="bg-white text-red-500 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition">
-            Fazer Pedido
-          </button>
-        </motion.div>
-      </section>
+ {/* Call to Action Section */}
+<section className="bg-black text-gray-300 text-center py-16">
+  <motion.div
+    whileHover={{ scale: 1.02 }}
+    className="container mx-auto px-6 md:px-12"
+  >
+    <h2 className="text-3xl md:text-5xl font-extrabold mb-6 leading-tight">
+      Pronto para saborear a melhor pizza da cidade?
+    </h2>
+    <p className="text-lg md:text-2xl mb-8">
+      Faça já o seu pedido e receba em casa!
+    </p>
+    <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+      <button
+        className="bg-white text-red-600 px-8 py-3 rounded-full font-bold text-lg hover:bg-gray-100 transition-transform transform hover:scale-105"
+        aria-label="Reservar Mesa"
+      >
+        Reservar Mesa
+      </button>
+      <div
+        className="flex items-center bg-white p-3 rounded-full shadow-lg text-red-600 cursor-pointer hover:bg-gray-100 transition-transform transform hover:scale-105"
+        aria-label="Ligar Agora"
+      >
+        <Image
+          src="/images/telephone.png"
+          alt="Ícone de Telefone"
+          width={24}
+          height={24}
+          className="mr-3"
+        />
+        <span className="text-lg md:text-xl font-bold tracking-wide hover:text-red-500">
+          Ligue Agora
+        </span>
+      </div>
+    </div>
+  </motion.div>
+</section>
+
+
 
       {/* Footer */}
       <footer className="bg-gray-800 text-white py-8">
@@ -223,4 +231,5 @@ export const LandingPage: React.FC = () => {
       </footer>
     </div>
   );
-}
+};
+
