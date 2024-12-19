@@ -1,12 +1,11 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Image from "next/image";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 export const LandingPage: React.FC = () => {
-  const [currentIndex, setCurrentIndex] = useState<number>(0);
   const slides: string[] = [
     "/images/slide1.png",
     "/images/slide2.png", 
@@ -19,13 +18,7 @@ export const LandingPage: React.FC = () => {
     { name: "Vegetariana Deluxe", price: "€ 39,90" }
   ];
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, [slides.length]);
+  
 
   const settings = {
     dots: true,
@@ -33,7 +26,7 @@ export const LandingPage: React.FC = () => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    beforeChange: (current: number, next: number) => setCurrentIndex(next),
+   
   };
 
   return (
@@ -120,6 +113,7 @@ export const LandingPage: React.FC = () => {
           </Slider>
         </div>
       </section>
+
 
       {/* Call to Action Section */}
       <section className="bg-black text-gray-300 text-center py-16">
