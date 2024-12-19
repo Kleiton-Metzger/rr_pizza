@@ -139,7 +139,8 @@ export const LandingPage: React.FC = () => {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-12">Nossas Pizzas Mais Amadas</h2>
 
-          <Carousel value={currentIndex} onChange={setCurrentIndex}>
+          <Carousel value={currentIndex} onChange={(newIndex: number) => setCurrentIndex(newIndex)}>
+
             <CarouselContent>
               {slides.map((slide, index) => (
                 <CarouselItem 
