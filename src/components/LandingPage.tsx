@@ -84,7 +84,7 @@ export const LandingPage: React.FC = () => {
             className="relative w-full aspect-square"
           >
             <Image
-              src="/images/slide1.png"
+              src={slides[currentIndex]} // Usando currentIndex para controlar qual slide mostrar
               alt="Pizza Destaque"
               fill
               className="object-contain"
@@ -138,10 +138,7 @@ export const LandingPage: React.FC = () => {
           <Carousel value={currentIndex} onChange={(newIndex: number) => setCurrentIndex(newIndex)}>
             <CarouselContent>
               {slides.map((slide, index) => (
-                <CarouselItem 
-                  key={index} 
-                  className={index === currentIndex ? 'block' : 'hidden'}
-                >
+                <CarouselItem key={index} className={index === currentIndex ? 'block' : 'hidden'}>
                   <motion.div
                     whileHover={{ scale: 1.05 }}
                     className="bg-white rounded-xl shadow-lg overflow-hidden max-w-md mx-auto"
@@ -174,43 +171,44 @@ export const LandingPage: React.FC = () => {
         </div>
       </section>
 
-{/* Call to Action Section */}
-<section className="bg-black text-gray-300 text-center py-16">
-  <motion.div
-    whileHover={{ scale: 1.02 }}
-    className="container mx-auto px-6 md:px-12"
-  >
-    <h2 className="text-3xl md:text-5xl font-extrabold mb-6 leading-tight">
-      Pronto para saborear a melhor pizza da cidade?
-    </h2>
-    <p className="text-lg md:text-2xl mb-8">
-      Faça já o seu pedido e receba em casa!
-    </p>
-    <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-      <button
-        className="bg-white text-red-600 px-8 py-3 rounded-full font-bold text-lg hover:bg-gray-100 transition-transform transform hover:scale-105"
-        aria-label="Reservar Mesa"
-      >
-        Reservar Mesa
-      </button>
-      <div
-        className="flex items-center bg-white p-3 rounded-full shadow-lg text-red-600 cursor-pointer hover:bg-gray-100 transition-transform transform hover:scale-105"
-        aria-label="Ligar Agora"
-      >
-        <Image
-          src="/images/telephone.png"
-          alt="Ícone de Telefone"
-          width={24}
-          height={24}
-          className="mr-3"
-        />
-        <span className="text-lg md:text-xl font-bold tracking-wide hover:text-red-500">
-          Ligue Agora
-        </span>
-      </div>
-    </div>
-  </motion.div>
-</section>
+      {/* Call to Action Section */}
+      <section className="bg-black text-gray-300 text-center py-16">
+        <motion.div
+          whileHover={{ scale: 1.02 }}
+          className="container mx-auto px-6 md:px-12"
+        >
+          <h2 className="text-3xl md:text-5xl font-extrabold mb-6 leading-tight">
+            Pronto para saborear a melhor pizza da cidade?
+          </h2>
+          <p className="text-lg md:text-2xl mb-8">
+            Faça já o seu pedido e receba em casa!
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+            <button
+              className="bg-white text-red-600 px-8 py-3 rounded-full font-bold text-lg hover:bg-gray-100 transition-transform transform hover:scale-105"
+              aria-label="Reservar Mesa"
+            >
+              Reservar Mesa
+            </button>
+            <div
+              className="flex items-center bg-white p-3 rounded-full shadow-lg text-red-600 cursor-pointer hover:bg-gray-100 transition-transform transform hover:scale-105"
+              aria-label="Ligar Agora"
+            >
+              <Image
+                src="/images/telephone.png"
+                alt="Ícone de Telefone"
+                width={24}
+                height={24}
+                className="mr-3"
+              />
+              <span className="text-lg md:text-xl font-bold tracking-wide hover:text-red-500">
+                Ligue Agora
+              </span>
+            </div>
+          </div>
+        </motion.div>
+      </section>
+
       {/* Footer */}
       <footer className="bg-gray-800 text-white py-8">
         <div className="container mx-auto px-4 text-center">
@@ -225,4 +223,3 @@ export const LandingPage: React.FC = () => {
     </div>
   );
 };
-
