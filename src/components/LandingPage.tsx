@@ -1,8 +1,9 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { Carousel, CarouselItem, CarouselContent } from "@/components/ui/carousel";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export const LandingPage: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
@@ -26,8 +27,13 @@ export const LandingPage: React.FC = () => {
     return () => clearInterval(interval);
   }, [slides.length]);
 
-  const handleCarouselChange = (newIndex: number) => {
-    setCurrentIndex(newIndex);
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    beforeChange: (current: number, next: number) => setCurrentIndex(next),
   };
 
   return (
@@ -49,12 +55,7 @@ export const LandingPage: React.FC = () => {
 
         {/* Conteúdo Sobreposto */}
         <div className="relative z-10 container mx-auto grid md:grid-cols-2 gap-8 items-center h-full px-8 md:px-16">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            className="space-y-6 text-white"
-          >
+          <div className="space-y-6 text-white">
             <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-4 md:mb-8 tracking-wide text-shadow text-center md:text-left">
               Sabor Autêntico em Cada Fatia
             </h1>
@@ -62,30 +63,17 @@ export const LandingPage: React.FC = () => {
               Experimente o melhor da culinária italiana, feita com paixão e ingredientes frescos.
             </p>
             <div className="flex flex-col md:flex-row space-x-0 md:space-x-4">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-yellow-500 text-white px-6 py-3 rounded-full shadow-lg hover:bg-yellow-500 transition font-bold"
-              >
+              <button className="bg-yellow-500 text-white px-6 py-3 rounded-full shadow-lg hover:bg-yellow-500 transition font-bold">
                 Peça Agora
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="border-2 border-white text-white px-6 py-3 rounded-full hover:bg-yellow-500 transition font-bold mt-4 md:mt-0"
-              >
+              </button>
+              <button className="border-2 border-white text-white px-6 py-3 rounded-full hover:bg-yellow-500 transition font-bold mt-4 md:mt-0">
                 Ver Menu
-              </motion.button>
+              </button>
             </div>
-          </motion.div>
+          </div>
 
           {/* Imagem de Pizza Destacada */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
-            className="relative w-full aspect-square"
-          >
+          <div className="relative w-full aspect-square">
             <Image
               src="/images/slide1.png"
               alt="Pizza Destaque"
@@ -93,42 +81,6 @@ export const LandingPage: React.FC = () => {
               className="object-contain"
               priority
             />
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Features Section */}
-      <section className="py-16 bg-gray-100">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Por que escolher a Pizza R&R?</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {[ 
-              {
-                icon: "🍕",
-                title: "Ingredientes Frescos",
-                description: "Selecionamos cuidadosamente os melhores ingredientes para nossas pizzas."
-              },
-              {
-                icon: "🚚", 
-                title: "Entrega Rápida",
-                description: "Sua pizza chega quentinha em até 30 minutos ou a entrega é grátis!"
-              },
-              {
-                icon: "👨‍🍳",
-                title: "Receitas Exclusivas",
-                description: "Nossos chefs criam sabores únicos que você só encontra aqui."
-              }
-            ].map((item, index) => (
-              <motion.div
-                key={index}
-                whileHover={{ scale: 1.05 }}
-                className="bg-white p-6 rounded-xl shadow-md text-center"
-              >
-                <div className="text-5xl mb-4">{item.icon}</div>
-                <h3 className="font-bold text-xl mb-2">{item.title}</h3>
-                <p className="text-gray-600">{item.description}</p>
-              </motion.div>
-            ))}
           </div>
         </div>
       </section>
@@ -138,51 +90,40 @@ export const LandingPage: React.FC = () => {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-12">Nossas Pizzas Mais Amadas</h2>
 
-          <Carousel value={currentIndex} onChange={handleCarouselChange}>
-            <CarouselContent>
-              {slides.map((slide, index) => (
-                <CarouselItem 
-                  key={index} 
-                  className={index === currentIndex ? 'block' : 'hidden'}
-                >
-                  <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    className="bg-white rounded-xl shadow-lg overflow-hidden max-w-md mx-auto"
-                  >
-                    <div className="relative h-[400px] w-full">
-                      <Image 
-                        src={slide} 
-                        alt={pizzaDetails[index].name}
-                        fill
-                        className="object-contain"
-                        loading="lazy"
-                      />
-                    </div>
-                    <div className="p-4">
-                      <h3 className="font-bold text-xl mb-2">
-                        {pizzaDetails[index].name}
-                      </h3>
-                      <p className="text-red-500 font-bold">
-                        {pizzaDetails[index].price}
-                      </p>
-                      <button className="mt-4 bg-red-500 text-white px-4 py-2 rounded-full hover:bg-red-600 transition">
-                        Adicionar ao Carrinho
-                      </button>
-                    </div>
-                  </motion.div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-          </Carousel>
+          <Slider {...settings}>
+            {slides.map((slide, index) => (
+              <div key={index}>
+                <div className="bg-white rounded-xl shadow-lg overflow-hidden max-w-md mx-auto">
+                  <div className="relative h-[400px] w-full">
+                    <Image 
+                      src={slide} 
+                      alt={pizzaDetails[index].name}
+                      fill
+                      className="object-contain"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h3 className="font-bold text-xl mb-2">
+                      {pizzaDetails[index].name}
+                    </h3>
+                    <p className="text-red-500 font-bold">
+                      {pizzaDetails[index].price}
+                    </p>
+                    <button className="mt-4 bg-red-500 text-white px-4 py-2 rounded-full hover:bg-red-600 transition">
+                      Adicionar ao Carrinho
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </Slider>
         </div>
       </section>
 
       {/* Call to Action Section */}
       <section className="bg-black text-gray-300 text-center py-16">
-        <motion.div
-          whileHover={{ scale: 1.02 }}
-          className="container mx-auto px-6 md:px-12"
-        >
+        <div className="container mx-auto px-6 md:px-12">
           <h2 className="text-3xl md:text-5xl font-extrabold mb-6 leading-tight">
             Pronto para saborear a melhor pizza da cidade?
           </h2>
@@ -212,7 +153,7 @@ export const LandingPage: React.FC = () => {
               </span>
             </div>
           </div>
-        </motion.div>
+        </div>
       </section>
 
       {/* Footer */}
