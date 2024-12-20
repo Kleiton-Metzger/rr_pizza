@@ -82,6 +82,10 @@ export const Footer: React.FC = () => {
             </li>
           </ul>
         </div>
+        <div className="text-center text-sm text-gray-400">
+          <p>&copy; 2024 Pizza R&R.Todos os direitos reservados.</p>
+          <p>Desenvolvido por: <a href="https://github.com/Kleiton-Metzger">Kleiton Metzger</a></p>
+        </div>
       </div>
     </footer>
   );
