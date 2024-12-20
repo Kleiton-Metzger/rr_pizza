@@ -2,7 +2,6 @@ import React from 'react';
 import { 
   FaFacebookF,
   FaInstagram,
-  
 } from "react-icons/fa";
 import { 
   MdLocationOn,
@@ -15,10 +14,9 @@ export const Footer: React.FC = () => {
     <footer className="bg-gray-800 text-white py-8">
       <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Social Media Section */}
-        <div className="flex flex-col items-start">
+        <div className="flex flex-col items-start mb-6 md:mb-0">
           <h3 className="text-lg font-semibold mb-4">Siga-nos</h3>
           <div className="flex space-x-4">
-           
             <a href="https://www.facebook.com/pizzariaRR/" aria-label="Facebook" className="hover:text-yellow-400">
               <FaFacebookF />
             </a>
@@ -29,7 +27,7 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Services Section */}
-        <div className="flex flex-col items-start">
+        <div className="flex flex-col items-start mb-6 md:mb-0">
           <h3 className="text-lg font-semibold mb-4">Serviços</h3>
           <ul className="space-y-2">
             <li><a href="/about" className="hover:text-yellow-400">Sobre Nós</a></li>
@@ -39,7 +37,7 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Contact Section */}
-        <div className="flex flex-col items-start">
+        <div className="flex flex-col items-start mb-6 md:mb-0">
           <h3 className="text-lg font-semibold mb-4">Dúvidas?</h3>
           <ul className="space-y-2">
             <li>
@@ -82,9 +80,11 @@ export const Footer: React.FC = () => {
             </li>
           </ul>
         </div>
-        <div className="text-center text-sm text-gray-400 col-span-3 border-t border-gray-700 pt-8">
-          <p>&copy; 2024 Pizza R&R.Todos os direitos reservados.</p>
-          <p>Desenvolvido por: <a href="https://github.com/Kleiton-Metzger">Kleiton Metzger</a></p>
+
+        {/* Footer Note */}
+        <div className="text-center text-sm text-gray-400 col-span-1 md:col-span-3 border-t border-gray-700 pt-8">
+          <p>&copy; 2024 R&R Pizza. Todos os direitos reservados.</p>
+          <p>Desenvolvido por: <a href="https://github.com/Kleiton-Metzger" className="hover:text-yellow-400">Kleiton Metzger</a></p>
         </div>
       </div>
     </footer>
