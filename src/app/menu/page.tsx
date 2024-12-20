@@ -98,9 +98,7 @@ const Menu: React.FC = () => {
             <h2 className="text-2xl font-bold mb-2">{item.name}</h2>
             <p className="text-sm text-gray-600 mb-2">{item.description}</p>
             <p className="text-xl text-yellow-500 font-bold mb-4">{item.price}</p>
-            <button className="px-4 py-2 bg-yellow-500 text-black font-semibold rounded hover:bg-yellow-400 transition-all duration-300">
-              Adicionar ao Carrinho
-            </button>
+            
           </div>
         ))}
       </div>
