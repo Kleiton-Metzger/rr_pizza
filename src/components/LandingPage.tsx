@@ -13,9 +13,9 @@ export const LandingPage: React.FC = () => {
   ];
 
   const pizzaDetails = [
-    { name: "Margherita Clássica", price: "€ 35,90" },
-    { name: "Pepperoni Supreme", price: "€ 42,90" },
-    { name: "Vegetariana Deluxe", price: "€ 39,90" },
+    { name: "Margherita Clássica", price: "€ " },
+    { name: "Pepperoni Supreme", price: "€ " },
+    { name: "Vegetariana Deluxe", price: "€ " },
   ];
 
   const settings = {
@@ -127,7 +127,7 @@ export const LandingPage: React.FC = () => {
      {/* Call to Action Section */}
 <section className="bg-black text-gray-300 text-center py-16">
   <div className="container mx-auto px-6 md:px-12">
-    <h2 className="text-2xl md:text-4xl font-extrabold mb-4 leading-tight">
+    <h2 className="text-2xl md:text-3xl font-extrabold mb-4 leading-tight">
       
       Desfrute da sua pizza favorita no conforto de sua casa.
       <br />

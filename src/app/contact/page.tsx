@@ -1,4 +1,7 @@
 import React from "react";
+import CallRoundedIcon from '@mui/icons-material/CallRounded';
+import EmailRoundedIcon from '@mui/icons-material/EmailRounded';
+import LocationOnRoundedIcon from '@mui/icons-material/LocationOnRounded';
 
 export default function Contact() {
   return (
@@ -30,15 +33,19 @@ export default function Contact() {
           </p>
           <div className="space-y-4">
             <p className="flex items-center text-gray-700">
-              <span className="text-2xl mr-3">📞</span>
-              <span><strong>Telefone:</strong> <a href="tel:+351274604187" className="hover:text-blue-500 transition-colors">(+351) 274 604 187</a></span>
+              <CallRoundedIcon className="text-yellow-400 mr-3" />
+              <span><strong>Telefone:</strong> 
+                <a href="tel:+351274604187" className="hover:text-blue-500 transition-colors"> (+351) 274 604 187</a>
+              </span>
             </p>
             <p className="flex items-center text-gray-700">
-              <span className="text-2xl mr-3">📧</span>
-              <span><strong>E-mail:</strong> <a href="mailto:pizzariarr@outlook.pt" className="text-blue-500 hover:underline">pizzariarr@outlook.pt</a></span>
+              <EmailRoundedIcon className="text-yellow-400 mr-3" />
+              <span><strong>E-mail:</strong> 
+                <a href="mailto:pizzariarr@outlook.pt" className="text-blue-500 hover:underline"> pizzariarr@outlook.pt</a>
+              </span>
             </p>
-            <p className="flex items-start text-gray-700">
-              <span className="text-2xl mr-3">📍</span>
+            <p className="flex items-center text-gray-700">
+              <LocationOnRoundedIcon className="text-yellow-400 mr-3" />
               <span><strong>Endereço:</strong> Avenida 25 de Abril, 6100-733 Sertã</span>
             </p>
           </div>

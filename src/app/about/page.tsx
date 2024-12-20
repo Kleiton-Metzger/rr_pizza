@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaCcVisa, FaCcMastercard, FaCcPaypal, FaMoneyBillWave, FaCreditCard, FaMobileAlt } from 'react-icons/fa';
-
+import ContactlessIcon from '@mui/icons-material/Contactless';
 export default function AboutUs() {
   const services = [
     "Acessibilidade",
@@ -13,7 +13,7 @@ export default function AboutUs() {
 
   const paymentOptions = [
     { name: "Dinheiro", icon: <FaMoneyBillWave className="w-5 h-5 mr-2 text-green-500" /> },
-    { name: "Pagamentos contactless", icon: <FaMobileAlt className="w-5 h-5 mr-2 text-blue-500" /> },
+    { name: "Pagamentos contactless", icon: <ContactlessIcon className="w-5 h-5 mr-1 text-blue-500" /> },
     { name: "Mastercard", icon: <FaCcMastercard className="w-5 h-5 mr-2 text-red-500" /> },
     { name: "PayPal", icon: <FaCcPaypal className="w-5 h-5 mr-2 text-blue-700" /> },
     { name: "VISA", icon: <FaCcVisa className="w-5 h-5 mr-2 text-blue-600" /> },
@@ -40,13 +40,17 @@ export default function AboutUs() {
             Sobre a R&R Pizza
           </h1>
 
-          {/* Descrição da Pizzaria */}
-          <div className="mb-10 text-center">
-            <p className="text-xl text-gray-600 leading-relaxed">
-              Na R&R Pizza, combinamos tradição italiana autêntica com paixão culinária. 
-              Cada pizza é preparada com ingredientes selecionados e muito carinho.
-            </p>
-          </div>
+        {/* Descrição da Pizzaria */}
+<div className="mb-10 text-center">
+  <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
+    Passe uma noite agradável e mergulhe na diversidade dos sabores da culinária tradicional, italiana, portuguesa e americana. No nosso restaurante R&R PIZZA, cada refeição é uma experiência memorável.
+    <br />
+    Saboreie pratos irresistíveis, desfrute de bebidas únicas e aprecie um ambiente acolhedor e convidativo. 
+    <br />
+    Aproveite o sol no nosso encantador espaço exterior. Venha nos visitar na próxima onda de calor, os nossos espaços climatizados oferecem um refrescante momento de descontração.
+  </p>
+</div>
+
 
           {/* Seções de Informações */}
           <div className="grid md:grid-cols-3 gap-8">
