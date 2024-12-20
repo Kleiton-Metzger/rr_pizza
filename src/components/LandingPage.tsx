@@ -121,13 +121,18 @@ export const LandingPage: React.FC = () => {
             Faça já o seu pedido e receba em casa!
           </p>
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-            <button
+            {/* Botão Reservar Mesa */}
+            <a
+              href="tel:+351274604187"
               className="bg-white text-red-600 px-8 py-3 rounded-full font-bold text-lg hover:bg-gray-100 transition-transform transform hover:scale-105"
               aria-label="Reservar Mesa"
             >
               Reservar Mesa
-            </button>
-            <div
+            </a>
+
+            {/* Botão Ligar Agora */}
+            <a
+              href="tel:+351274604187"
               className="flex items-center bg-white p-3 rounded-full shadow-lg text-red-600 cursor-pointer hover:bg-gray-100 transition-transform transform hover:scale-105"
               aria-label="Ligar Agora"
             >
@@ -141,7 +146,7 @@ export const LandingPage: React.FC = () => {
               <span className="text-lg md:text-xl font-bold tracking-wide hover:text-red-500">
                 Ligue Agora
               </span>
-            </div>
+            </a>
           </div>
         </div>
       </section>
