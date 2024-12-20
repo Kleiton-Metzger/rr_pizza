@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-export const Navbar = () => {
+export const Navbar: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ export const Navbar = () => {
     <nav className="bg-black text-white shadow-lg sticky top-0 z-50 backdrop-blur-md bg-opacity-90">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-5  ">
         <div className="flex justify-between items-center h-16   ">
-                   {/* Logo */}
+          {/* Logo */}
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
               <Image
@@ -48,18 +48,10 @@ export const Navbar = () => {
           </div>
 
           <div className="hidden md:flex space-x-8 items-center">
-            <Link href="/" className="hover:text-yellow-400 transition-colors">
-              Início
-            </Link>
-            <Link href="/menu" className="hover:text-yellow-400 transition-colors">
-              Menu
-            </Link>
-            <Link href="/about" className="hover:text-yellow-400 transition-colors">
-              Sobre Nós
-            </Link>
-            <Link href="/contact" className="hover:text-yellow-400 transition-colors">
-              Contacto
-            </Link>
+            <Link href="/" className="hover:text-yellow-400 transition-colors">Início</Link>
+            <Link href="/menu" className="hover:text-yellow-400 transition-colors">Menu</Link>
+            <Link href="/about" className="hover:text-yellow-400 transition-colors">Sobre Nós</Link>
+            <Link href="/contact" className="hover:text-yellow-400 transition-colors">Contacto</Link>
           </div>
 
           <div className="md:hidden">
