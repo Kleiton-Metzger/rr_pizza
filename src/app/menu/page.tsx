@@ -1,11 +1,21 @@
 "use client";
-
 import React, { useState } from "react";
 
-const Menu: React.FC = () => {
-  const [activeCategory, setActiveCategory] = useState("Pizza");
+type MenuItem = {
+  name: string;
+  description: string;
+  price: string;
+  image: string;
+};
 
-  const menuItems = {
+type MenuItems = {
+  [key: string]: MenuItem[];
+};
+
+const Menu: React.FC = () => {
+  const [activeCategory, setActiveCategory] = useState<string>("Pizza");
+
+  const menuItems: MenuItems = {
     Pizza: [
       {
         name: "Margherita",
@@ -98,7 +108,6 @@ const Menu: React.FC = () => {
             <h2 className="text-2xl font-bold mb-2">{item.name}</h2>
             <p className="text-sm text-gray-600 mb-2">{item.description}</p>
             <p className="text-xl text-yellow-500 font-bold mb-4">{item.price}</p>
-            
           </div>
         ))}
       </div>
