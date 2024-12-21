@@ -3,9 +3,8 @@
 import React, { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 
-// Dynamically import the libraries to avoid SSR issues
+// Dynamically import the snowfall library to avoid SSR issues
 const Snowfall = dynamic(() => import('react-snowfall'), { ssr: false });
-const Fireworks = dynamic(() => import('react-fireworks'), { ssr: false });
 
 const SeasonalEffects: React.FC = () => {
   const [effect, setEffect] = useState<'none' | 'snow' | 'fireworks'>('none');
@@ -36,13 +35,6 @@ const SeasonalEffects: React.FC = () => {
     return () => clearInterval(timer);
   }, []);
 
-  // Fireworks configuration
-  const fireworksConfig = {
-    x: 'calc(50% - 150px)',
-    y: 'calc(50% - 150px)',
-    colors: ['#cc3333', '#4CAF50', '#3f51b5'],
-  };
-
   return (
     <div className="fixed inset-0 pointer-events-none z-[9999]">
       {effect === 'snow' && (
@@ -51,10 +43,11 @@ const SeasonalEffects: React.FC = () => {
         />
       )}
       {effect === 'fireworks' && (
-        <Fireworks 
-          options={fireworksConfig}
-          style={{ position: 'fixed', width: '100%', height: '100%', zIndex: 9999 }}
-        />
+        <div className="fireworks">
+          <div className="firework"></div>
+          <div className="firework"></div>
+          <div className="firework"></div>
+        </div>
       )}
     </div>
   );
