@@ -2718,6 +2718,16 @@ react-dom@^19.0.0:
   dependencies:
     scheduler "^0.25.0"
 
+react-fast-compare@^3.2.2:
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-3.2.2.tgz#929a97a532304ce9fee4bcae44234f1ce2c21d49"
+  integrity sha512-nsO+KSNgo1SbJqJEYRE9ERzo7YtYbou/OqjSQKxV7jcKox7+usiUVZOAC+XnDOABXggQTno0Y1CpVnuWEc1boQ==
+
+react-fireworks@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/react-fireworks/-/react-fireworks-1.0.4.tgz#7666658fd3273301a398a88d15b9857972c44c6c"
+  integrity sha512-jj1a+HTicB4pR6g2lqhVyAox0GTE0TOrZK2XaJFRYOwltgQWeYErZxnvU9+zH/blY+Hpmu9IKyb39OD3KcCMJw==
+
 react-icons@^5.4.0:
   version "5.4.0"
   resolved "https://registry.npmjs.org/react-icons/-/react-icons-5.4.0.tgz"
@@ -2743,6 +2753,13 @@ react-slick@^0.30.3:
     json2mq "^0.2.0"
     lodash.debounce "^4.0.8"
     resize-observer-polyfill "^1.5.0"
+
+react-snowfall@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/react-snowfall/-/react-snowfall-2.2.0.tgz#0856a72c4d29d27a6a14301c0f5deb51296fb4df"
+  integrity sha512-dRk7vEHq/ZUOG+JHk2k/hH3HmliOWGXr4rKRDeW4mjWuHeI1r5h0Lc1r2jnTtUS1im702d6tCmNGymlNTdhXYg==
+  dependencies:
+    react-fast-compare "^3.2.2"
 
 react-transition-group@^4.4.5:
   version "4.4.5"
