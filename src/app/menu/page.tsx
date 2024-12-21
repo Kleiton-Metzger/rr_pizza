@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import Image from 'next/image';
 
 type MenuItem = {
   name: string;
@@ -21,13 +22,13 @@ const Menu: React.FC = () => {
         name: "Margherita",
         description: "Deliciosa pizza com molho de tomate, mozzarella e manjericão.",
         price: "€ 10,90",
-        image: "/images/margherita.jpg",
+        image: "",
       },
       {
         name: "Pepperoni",
         description: "Pizza clássica com pepperoni crocante e queijo derretido.",
         price: "€ 12,90",
-        image: "/images/pepperoni.jpg",
+        image: "",
       },
     ],
     Drinks: [
@@ -49,13 +50,13 @@ const Menu: React.FC = () => {
         name: "Cheeseburger",
         description: "Hambúrguer com queijo, alface e tomate.",
         price: "€ 8,90",
-        image: "/images/cheeseburger.jpg",
+        image: "",
       },
       {
         name: "Double Burger",
         description: "Hambúrguer duplo com queijo e bacon.",
         price: "€ 10,50",
-        image: "/images/double-burger.jpg",
+        image: "",
       },
     ],
     Pasta: [
@@ -63,13 +64,14 @@ const Menu: React.FC = () => {
         name: "Spaghetti Carbonara",
         description: "Massa cremosa com bacon e queijo parmesão.",
         price: "€ 9,90",
-        image: "/images/carbonara.jpg",
+        image: "",
+         
       },
       {
         name: "Penne Arrabiata",
         description: "Massa com molho de tomate picante e manjericão.",
         price: "€ 8,50",
-        image: "/images/penne.jpg",
+        image: "",
       },
     ],
   };
@@ -100,9 +102,11 @@ const Menu: React.FC = () => {
             key={index}
             className="menu-item bg-white shadow-lg rounded-lg p-4 text-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl"
           >
-            <img
+            <Image
               src={item.image}
               alt={item.name}
+              width={500}
+              height={500}
               className="w-full h-48 object-cover rounded-full mx-auto mb-4"
             />
             <h2 className="text-2xl font-bold mb-2">{item.name}</h2>

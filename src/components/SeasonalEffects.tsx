@@ -1,4 +1,3 @@
-// components/SeasonalEffects.tsx
 'use client';
 
 import React, { useEffect, useState } from 'react';
@@ -14,7 +13,6 @@ const SeasonalEffects: React.FC = () => {
   useEffect(() => {
     const checkDate = () => {
       const now = new Date();
-      const year = now.getFullYear();
       const month = now.getMonth();
       const day = now.getDate();
 
